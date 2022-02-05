@@ -1,9 +1,14 @@
-import fetch from "node-fetch";
+const axios = require("axios");
 const handler = async () => {
-  const response = await fetch("https://zenquotes.io/api/random");
+  const response = await axios
+    .get("https://zenquotes.io/api/random")
+    .then((data) => {
+      return data.data;
+    });
+  console.log(response);
   return {
     statusCode: 200,
-    body: response,
+    body: JSON.stringify(response[0].h),
   };
 };
 
