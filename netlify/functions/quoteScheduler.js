@@ -5,3 +5,5 @@ const handler = async () => {
     body: response,
   };
 };
+
+module.exports.handler = handler;
